@@ -4,53 +4,47 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class Container {
-
-	int id;
-	LocalDate ankomstdato;
-	LocalDate afhentningsdato;
-	int dagTilbage;
 	
-	public Container(int id, LocalDate ankomstdato, LocalDate afhentningsdato) {
+	private int id;
+	private LocalDate dateOfArrival;
+	private LocalDate pickupDate;
+	
+	public Container(int id, LocalDate dateOfArrival, LocalDate pickupDate) {
 		this.id = id;
-		this.ankomstdato = ankomstdato;
-		this.afhentningsdato = afhentningsdato;
+		this.dateOfArrival = dateOfArrival;
+		this.pickupDate = pickupDate;
 	}
-	
-	public int getId(){
+
+	public int getId() {
 		return id;
 	}
-	
-	
 
-	public LocalDate getAnkomstdato() {
-		return ankomstdato;
+	public void setId(int id) {
+		this.id = id;
 	}
 
+	public LocalDate getDateOfArrival() {
+		return dateOfArrival;
+	}
+
+	public void setDateOfArrival(LocalDate dateOfArrival) {
+		this.dateOfArrival = dateOfArrival;
+	}
+
+	public LocalDate getPickupDate() {
+		return pickupDate;
+	}
+
+	public void setPickupDate(LocalDate pickupDate) {
+		this.pickupDate = pickupDate;
 	
-	public LocalDate getAfhentningsdato() {
-		return afhentningsdato;
 	}
 	
-	public int getDagTilbage(){
-		
-		dagTilbage=Period.between(LocalDate.now(), afhentningsdato).getDays();
-		
-		return dagTilbage;
-		
-	}
-
-
-	public void setDagTilbage(int dagTilbage) {
-		this.dagTilbage = dagTilbage;
-	}
-
+	
 	@Override
 	public String toString() {
-		return "Container [id=" + id + ", ankomstdato=" + ankomstdato + ", afhentningsdato=" + afhentningsdato
-				+ ", dagTilbage=" + dagTilbage + "]";
+		return "Container [id=" + id + ", dateOfArrival=" + dateOfArrival + ", pickupDate=" + pickupDate + "]";
 	}
-
-	
 	
 	
 	

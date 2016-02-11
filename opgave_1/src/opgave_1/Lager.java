@@ -1,44 +1,37 @@
 package opgave_1;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 public class Lager {
 	
 	private List<Container> list = new ArrayList<>();
-
 	private boolean placed = false;
-
-	private List<List<Container>> lister = new ArrayList<List<Container>>();
-	
+	private List<List<Container>> lister = new ArrayList<List<Container>>();	
 	private int maxAntalContainer = 0;
 	private int maxAntalPlace = 0;
 
-	public boolean modtagContainer(Container container) {
-
+	
+	
+	public void modtagContainer(Container container) {
 		int i = 0;
 		
 		if(lister.isEmpty()){
 		lister.add(new ArrayList<Container>());
 		}
-		
-		
-		while(!checkList(container, lister.get(i))){
-			
-			
-			lister.add(new ArrayList<Container>());
-			
-			
-			placed = checkList(container, lister.get(i++));
-												
+				
+		while(!checkList(container, lister.get(i))){			
+			lister.add(new ArrayList<Container>());						
+			placed = checkList(container, lister.get(i++));												
 		}	
 		
 		lister.removeIf(e -> e.isEmpty());
-
+		System.out.println(maxAntalContainer);
 		
-		return placed;	
+		getMaxAntalContainer();
+		getMaxAntalPlace();
 	}	
 
 	
@@ -50,25 +43,28 @@ public class Lager {
 	private boolean checkList(Container container, List<Container> list) {
 		int maxsize = 3;
 
+		
+		
 		if(list.size()==maxsize){
 			placed = false;		
+			
+		} else if(list.isEmpty()){
+			list.add(container);
+			placed = true;		
 
-		}
-
-		if(list.isEmpty()){
+		} else if (Period.between (list.get(list.size()-1).getPickupDate() , container.getPickupDate()).isNegative()){
 			list.add(container);
 			placed = true;
-
-		} else if ((list.get(list.size()-1).getDagTilbage() >= container.getDagTilbage())){
+		} else if (Period.between (list.get(list.size()-1).getPickupDate() , container.getPickupDate()).isZero()){
 			list.add(container);
 			placed = true;
-		} else {
-
+		} 
+		
+		
+		else {
 			placed = false;
-
 		}
 		
-
 		return placed;
 
 	}
@@ -89,26 +85,25 @@ public class Lager {
 	}
 
 	
+	public void afsendContainer(){
+	
+		
+			
+	}
+		
+	
+	
 	public int getMaxAntalContainer(){
 		
-
 		if(maxAntalContainer < getTotalAntalContainer()){
 			maxAntalContainer = getTotalAntalContainer();
-		}
-				
+		}				
 		return maxAntalContainer;
 		
 	}
 	
-	public int getTotalPlace(){
-		
-		int i = 0;
-		for(List<Container> l : lister){
-			if(!l.isEmpty()){
-				i++;
-			}
-		}
-		return i;
+	public int getTotalPlace(){		
+		return lister.size();
 	}
 
 	
@@ -118,4 +113,6 @@ public class Lager {
 		}		
 		return maxAntalPlace;
 	}
-}
+
+
+	}
