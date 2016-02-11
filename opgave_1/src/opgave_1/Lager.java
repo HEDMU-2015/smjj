@@ -2,7 +2,8 @@ package opgave_1;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Lager {
 	
@@ -32,9 +33,10 @@ public class Lager {
 			
 			placed = checkList(container, lister.get(i++));
 												
-		}		
+		}	
 		
-		
+		lister.removeIf(e -> e.isEmpty());
+
 		
 		return placed;	
 	}	
@@ -113,8 +115,7 @@ public class Lager {
 	public int getMaxAntalPlace(){
 		if(maxAntalPlace < getTotalPlace()){
 			maxAntalPlace = getTotalPlace();
-		}
-		
+		}		
 		return maxAntalPlace;
 	}
 }

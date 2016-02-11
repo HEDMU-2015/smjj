@@ -38,12 +38,11 @@ public class MainTest {
 			System.out.println("Place"+i+" : " + l);
 			i++;
 		}
+		
+		
+		
 
-		/*System.out.println("list1 " + lg.getList1());
-		System.out.println("list2 " + lg.getList2());
-		System.out.println("list3 " + lg.getList3());
-
-*/		System.out.println("Antal af Containere : " + lg.getTotalAntalContainer());
+		System.out.println("Antal af Containere : " + lg.getTotalAntalContainer());
 
 
 		System.out.println("Max antal af container : " + lg.getMaxAntalContainer());
