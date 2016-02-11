@@ -46,7 +46,12 @@ public class MainTest {
 */		System.out.println("Antal af Containere : " + lg.getTotalAntalContainer());
 
 
-
+		System.out.println("Max antal af container : " + lg.getMaxAntalContainer());
+		
+		
+		System.out.println("Antal af place : " + lg.getTotalPlace());
+		
+		System.out.println("Max antal af place : " + lg.getMaxAntalPlace());
 		
 	}
 

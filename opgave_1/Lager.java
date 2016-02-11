@@ -11,9 +11,7 @@ public class Lager {
 	private boolean placed = false;
 
 	private List<List<Container>> lister = new ArrayList<List<Container>>();
-	
-	private int maxAntalContainer = 0;
-	private int maxAntalPlace = 0;
+
 
 	public boolean modtagContainer(Container container) {
 
@@ -23,22 +21,24 @@ public class Lager {
 		lister.add(new ArrayList<Container>());
 		}
 		
-		
 		while(!checkList(container, lister.get(i))){
 			
-			
 			lister.add(new ArrayList<Container>());
-			
-			
 			placed = checkList(container, lister.get(i++));
-												
-		}		
+			
+		}	
 		
+		for(List<Container> l : lister){
 		
+		lister.remove(l);
 		
+		}
 		return placed;	
 	}	
 
+	
+	
+	
 	
 	public List<List<Container>> getLister(){
 		return lister;
@@ -61,16 +61,18 @@ public class Lager {
 			list.add(container);
 			placed = true;
 		} else {
-
 			placed = false;
 
 		}
+
 		
 
 		return placed;
 
 	}
 
+	
+	
 	
 	public List<Container> getList(){
 		return list;
@@ -86,35 +88,4 @@ public class Lager {
 		return i;
 	}
 
-	
-	public int getMaxAntalContainer(){
-		
-
-		if(maxAntalContainer < getTotalAntalContainer()){
-			maxAntalContainer = getTotalAntalContainer();
-		}
-				
-		return maxAntalContainer;
-		
-	}
-	
-	public int getTotalPlace(){
-		
-		int i = 0;
-		for(List<Container> l : lister){
-			if(!l.isEmpty()){
-				i++;
-			}
-		}
-		return i;
-	}
-
-	
-	public int getMaxAntalPlace(){
-		if(maxAntalPlace < getTotalPlace()){
-			maxAntalPlace = getTotalPlace();
-		}
-		
-		return maxAntalPlace;
-	}
 }
