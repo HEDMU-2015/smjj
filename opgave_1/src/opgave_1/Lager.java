@@ -73,7 +73,7 @@ public class Lager {
 		return list;
 	}
 
-	public int getTotalAntalContainer (){
+	public int getPtAntalContainer (){
 		
 		int i = 0;
 		
@@ -83,7 +83,30 @@ public class Lager {
 		return i;
 	}
 
+		
+	public int getMaxAntalContainer(){
+		
+		if(maxAntalContainer < getPtAntalContainer()){
+			maxAntalContainer = getPtAntalContainer();
+		}				
+		return maxAntalContainer;
+		
+	}
 	
+	public int getPtAntalPlace(){		
+		return lister.size();
+	}
+
+	
+	public int getMaxAntalPlace(){
+		if(maxAntalPlace < getPtAntalPlace()){
+			maxAntalPlace = getPtAntalPlace();
+		}		
+		return maxAntalPlace;
+	}
+
+	
+
 	public void afsendContainer(){
 	
 		
@@ -91,27 +114,6 @@ public class Lager {
 	}
 		
 	
-	
-	public int getMaxAntalContainer(){
-		
-		if(maxAntalContainer < getTotalAntalContainer()){
-			maxAntalContainer = getTotalAntalContainer();
-		}				
-		return maxAntalContainer;
-		
-	}
-	
-	public int getTotalPlace(){		
-		return lister.size();
-	}
-
-	
-	public int getMaxAntalPlace(){
-		if(maxAntalPlace < getTotalPlace()){
-			maxAntalPlace = getTotalPlace();
-		}		
-		return maxAntalPlace;
-	}
 
 
 	}
