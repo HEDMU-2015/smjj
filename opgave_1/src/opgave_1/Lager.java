@@ -28,7 +28,6 @@ public class Lager {
 		}	
 		
 		lister.removeIf(e -> e.isEmpty());
-		System.out.println(maxAntalContainer);
 		
 		getMaxAntalContainer();
 		getMaxAntalPlace();

@@ -23,6 +23,9 @@ public class Main {
 			System.out.println("Place"+i+" : " + l);
 			i++;
 		}
+		
+		System.out.println(lg.getTotalPlace());
+		System.out.println(lg.getTotalAntalContainer());
 
 	}
 	
