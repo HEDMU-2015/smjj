@@ -1,7 +1,6 @@
 package opgave_1;
 
 import java.time.LocalDate;
-import java.time.Period;
 
 public class Container {
 	
@@ -13,6 +12,10 @@ public class Container {
 		this.id = id;
 		this.dateOfArrival = dateOfArrival;
 		this.pickupDate = pickupDate;
+	}
+	
+	public Container(){
+		
 	}
 
 	public int getId() {

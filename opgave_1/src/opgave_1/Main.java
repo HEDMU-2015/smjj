@@ -24,8 +24,12 @@ public class Main {
 			i++;
 		}
 		
-		System.out.println(lg.getPtAntalPlace());
-		System.out.println(lg.getPtAntalContainer());
+		System.out.println("Max Container : " + lg.getMaxAntalContainer());
+		System.out.println("Actual Container : " + lg.getPtAntalContainer());
+		System.out.println("Max Place : " + lg.getMaxAntalPlace());
+		System.out.println("Actual Place : " + lg.getPtAntalPlace());
+
+		
 
 	}
 	
