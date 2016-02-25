@@ -11,20 +11,19 @@ public class Lager {
 	private List<List<Container>> lister = new ArrayList<List<Container>>();	
 	private int maxAntalContainer = 0;
 	private int maxAntalPlace = 0;
-	private boolean receiveBeforePickup = false;
-	private int maxsize = 2;
+	private boolean receiveBeforePickup;
+	private int maxsize;
 
-
+	
 	public void modtagContainer(Container container) {
 
-
-		int i = 0;
+		int i = 0;		
 
 		if(lister.isEmpty()){
 			
 			lister.add(new ArrayList<Container>());
 			
-		}else if(!receiveBeforePickup ){
+		} else if (!receiveBeforePickup ){
 			
 			for(List<Container> l : lister){
 
@@ -32,7 +31,8 @@ public class Lager {
 
 			}
 			
-			lister.removeIf(e -> e.isEmpty());
+			removeEmptyListe();
+			
 		}
 		
 
@@ -42,8 +42,7 @@ public class Lager {
 			placed = checkList(container, lister.get(i++));												
 		}	
 		
-		lister.removeIf(e -> e.isEmpty());
-
+		removeEmptyListe();
 
 		if(receiveBeforePickup){
 			for(List<Container> l : lister){	
@@ -51,18 +50,18 @@ public class Lager {
 				l.removeIf(e -> e.getPickupDate().isEqual(container.getDateOfArrival()));	
 
 			}
-			lister.removeIf(e -> e.isEmpty());
+			
+			removeEmptyListe();
 		}
-
-
 		getMaxAntalContainer();
 		getMaxAntalPlace();
-
-
 	}	
 
 
-
+	private void removeEmptyListe() {
+		lister.removeIf(e -> e.isEmpty());
+		
+	}
 
 
 	public List<List<Container>> getLister(){
@@ -71,8 +70,6 @@ public class Lager {
 
 
 	private boolean checkList(Container container, List<Container> list) {
-
-
 
 		if(list.size()==maxsize){
 			placed = false;		
@@ -87,13 +84,10 @@ public class Lager {
 		} else if (Period.between (list.get(list.size()-1).getPickupDate() , container.getPickupDate()).isZero()){
 			list.add(container);
 			placed = true;
-		} 		
-		else {
+		} else {
 			placed = false;
 		}
-
-
-
+		
 		return placed;
 
 	}
@@ -135,4 +129,24 @@ public class Lager {
 		return maxAntalPlace;
 	}
 
+	public boolean isReceiveBeforePickup() {
+		return receiveBeforePickup;
+	}
+
+
+	public void setReceiveBeforePickup(boolean receiveBeforePickup) {
+		this.receiveBeforePickup = receiveBeforePickup;
+	}
+
+
+	public int getMaxsize() {
+		return maxsize;
+	}
+
+
+	public void setMaxsize(int maxsize) {
+		this.maxsize = maxsize;
+	}
+
+	
 }

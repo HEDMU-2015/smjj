@@ -15,6 +15,8 @@ public class Main {
 		
 		
 		for(Container c : main.lavContainers()){
+			lg.setMaxsize(3);
+			lg.setReceiveBeforePickup(true);
 			lg.modtagContainer(c);		
 		}
 		
@@ -33,6 +35,10 @@ public class Main {
 		
 
 	}
+	
+	
+	
+	
 	
 	private List<Container> lavContainers(){
 		List<Container> containers = new ArrayList<>();
