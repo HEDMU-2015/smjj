@@ -13,6 +13,7 @@ public class Main {
 		
 		Lager lg = new Lager();
 		
+		
 		for(Container c : main.lavContainers()){
 			lg.modtagContainer(c);		
 		}

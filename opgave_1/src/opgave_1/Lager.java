@@ -12,6 +12,8 @@ public class Lager {
 	private int maxAntalContainer = 0;
 	private int maxAntalPlace = 0;
 	private boolean receiveBeforePickup = false;
+	private int maxsize = 2;
+
 
 	public void modtagContainer(Container container) {
 
@@ -69,7 +71,6 @@ public class Lager {
 
 
 	private boolean checkList(Container container, List<Container> list) {
-		int maxsize = 3;
 
 
 
@@ -122,7 +123,7 @@ public class Lager {
 
 	}
 
-	public int getPtAntalPlace(){		
+	public int getPtAntalPlace(){	
 		return lister.size();
 	}
 
