@@ -22,11 +22,9 @@ public class Main {
 		System.out.println("*** New Store, maxheight = "+lg1.getMaxsize() + ", receiveBeforePickup = " + lg1.isReceiveBeforePickup());
 		System.out.println("Max Containers = " + lg1.getMaxAntalContainer() + ", Actual Containers = "+lg1.getPtAntalContainer() + ", Max places = " + lg1.getMaxAntalPlace() + ", Actual places = " + lg1.getPtAntalPlace());
 		System.out.println("");
-
 		
 		Lager lg2 = new Lager();
 
-		
 		for(Container c : main.lavContainers()){
 			lg2.setMaxsize(2);
 			lg2.setReceiveBeforePickup(false);
@@ -53,7 +51,7 @@ public class Main {
 
 		
 		for(Container c : main.lavContainers()){
-			lg4.setMaxsize(2);
+			lg4.setMaxsize(3);
 			lg4.setReceiveBeforePickup(false);
 			lg4.modtagContainer(c);		
 		}
