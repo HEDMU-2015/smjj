@@ -11,27 +11,66 @@ public class Main {
 		
 		Main main = new Main();
 		
-		Lager lg = new Lager();
+		Lager lg1 = new Lager();
 		
 		
 		for(Container c : main.lavContainers()){
-			lg.setMaxsize(3);
-			lg.setReceiveBeforePickup(true);
-			lg.modtagContainer(c);		
+			lg1.setMaxsize(2);
+			lg1.setReceiveBeforePickup(true);
+			lg1.modtagContainer(c);		
 		}
+		System.out.println("*** New Store, maxheight = "+lg1.getMaxsize() + ", receiveBeforePickup = " + lg1.isReceiveBeforePickup());
+		System.out.println("Max Containers = " + lg1.getMaxAntalContainer() + ", Actual Containers = "+lg1.getPtAntalContainer() + ", Max places = " + lg1.getMaxAntalPlace() + ", Actual places = " + lg1.getPtAntalPlace());
+		System.out.println("");
+
 		
-		int i = 0;
+		Lager lg2 = new Lager();
+
+		
+		for(Container c : main.lavContainers()){
+			lg2.setMaxsize(2);
+			lg2.setReceiveBeforePickup(false);
+			lg2.modtagContainer(c);		
+		}
+		System.out.println("*** New Store, maxheight = "+lg2.getMaxsize() + ", receiveBeforePickup = " + lg2.isReceiveBeforePickup());
+		System.out.println("Max Containers = " + lg2.getMaxAntalContainer() + ", Actual Containers = "+lg2.getPtAntalContainer() + ", Max places = " + lg2.getMaxAntalPlace() + ", Actual places = " + lg2.getPtAntalPlace());
+		System.out.println("");
+
+		Lager lg3 = new Lager();
+
+		
+		for(Container c : main.lavContainers()){
+			lg3.setMaxsize(3);
+			lg3.setReceiveBeforePickup(true);
+			lg3.modtagContainer(c);		
+		}
+		System.out.println("*** New Store, maxheight = "+lg3.getMaxsize() + ", receiveBeforePickup = " + lg3.isReceiveBeforePickup());
+		System.out.println("Max Containers = " + lg3.getMaxAntalContainer() + ", Actual Containers = "+lg3.getPtAntalContainer() + ", Max places = " + lg3.getMaxAntalPlace() + ", Actual places = " + lg3.getPtAntalPlace());
+		System.out.println("");
+
+		
+		Lager lg4 = new Lager();
+
+		
+		for(Container c : main.lavContainers()){
+			lg4.setMaxsize(2);
+			lg4.setReceiveBeforePickup(false);
+			lg4.modtagContainer(c);		
+		}
+		System.out.println("*** New Store, maxheight = "+lg4.getMaxsize() + ", receiveBeforePickup = " + lg4.isReceiveBeforePickup());
+		System.out.println("Max Containers = " + lg4.getMaxAntalContainer() + ", Actual Containers = "+lg4.getPtAntalContainer() + ", Max places = " + lg4.getMaxAntalPlace() + ", Actual places = " + lg4.getPtAntalPlace());
+		System.out.println("");
+
+		
+		
+		/*int i = 0;
 		
 		for(List<Container> l : lg.getLister()){
 			System.out.println("Place"+i+" : " + l);
 			i++;
-		}
+		}*/
 		
-		System.out.println("Max Container : " + lg.getMaxAntalContainer());
-		System.out.println("Actual Container : " + lg.getPtAntalContainer());
-		System.out.println("Max Place : " + lg.getMaxAntalPlace());
-		System.out.println("Actual Place : " + lg.getPtAntalPlace());
-
+		
 		
 
 	}
@@ -154,7 +193,7 @@ public class Main {
 		containers.add(new Container(i++, LocalDate.of(2016, 3, 10), LocalDate.of(2016, 3, 15)));
 		containers.add(new Container(i++, LocalDate.of(2016, 3, 10), LocalDate.of(2016, 3, 11)));
 
-		System.out.println(containers);
+		//System.out.println(containers);
 		
 		return containers;
 		
